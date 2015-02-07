@@ -2,10 +2,7 @@ package dao;
 
 import com.dev.domain.Classes;
 import com.dev.domain.Head;
-import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
-import org.hibernate.Query;
-import org.hibernate.Session;
+import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 import util.HibernateUtil;
 
