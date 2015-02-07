@@ -44,16 +44,16 @@ public class TestClasses {
 
         session = HibernateUtil.getSessionFactory().openSession();
 
-        Head head = (Head)session.get(Head.class, 2);
-
-        System.out.println("Name: " + head.getName());
-
-        session.close();
+        List list = session.createCriteria(Head.class).add(Restrictions.like("id", new Integer(1)))
+                .createCriteria("classes", "c").add(Restrictions.like("c.id", 1)).list();
+        Head head = (Head) list.get(0);
 
         System.out.println("Name after: " + head.getName());
-//        for (Classes classes : head.getClasses()) {
-//            System.out.println("Name: " + classes.getName());
-//        }
+        for (Classes classes : head.getClasses()) {
+            System.out.println("Name: " + classes.getName());
+        }
+
+        session.close();
 
 
 //        session.getTransaction().commit();
