@@ -22,7 +22,7 @@ public class TestClasses {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         Query query = session.createQuery(getHeadQuery);
-        query.setParameter("id", 1);
+        query.setParameter("id", 0);
         List result = query.list();
 
         Head h = (Head) result.get(0);
