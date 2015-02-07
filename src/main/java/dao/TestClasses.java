@@ -46,9 +46,10 @@ public class TestClasses {
 
         Head head = (Head)session.get(Head.class, 2);
 
-//        System.out.println("Name: " + head.getName());
+        System.out.println("Name: " + head.getName());
 
         session.close();
+
         System.out.println("Name after: " + head.getName());
 //        for (Classes classes : head.getClasses()) {
 //            System.out.println("Name: " + classes.getName());
