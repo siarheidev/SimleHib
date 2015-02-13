@@ -7,6 +7,7 @@ import org.hibernate.criterion.Restrictions;
 import util.HibernateUtil;
 
 import javax.persistence.criteria.Expression;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -54,6 +55,28 @@ public class TestClasses {
 
 
 //        session.getTransaction().commit();
+
+
+    }
+
+
+    void metSave(){
+
+        Head newHead = new Head();
+        Classes newClasses = new Classes();
+        newHead.setBirthday(new Date(1231315554));
+        newHead.setName("Vladimir");
+
+        newClasses.setName("13-F");
+        newClasses.setRoomNumber("000");
+
+        newClasses.setHead(newHead);
+
+        session = HibernateUtil.getSessionFactory().openSession();
+
+        session.saveOrUpdate(newClasses);
+
+        session.getTransaction().commit();
 
 
     }
