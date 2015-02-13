@@ -26,6 +26,8 @@ public class Start
         TestClasses tc = new TestClasses();
         tc.metCr();
 
+        tc.metSave();
+
 
 
         HibernateUtil.closeSessionFactory();
