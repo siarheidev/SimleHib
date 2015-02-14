@@ -8,6 +8,7 @@ import util.HibernateUtil;
 
 import javax.persistence.criteria.Expression;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -60,23 +61,28 @@ public class TestClasses {
     }
 
 
-    void metSave(){
+    public void metSave(){
+
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
 
         Head newHead = new Head();
         Classes newClasses = new Classes();
-        newHead.setBirthday(new Date(1231315554));
-        newHead.setName("Vladimir");
+        Set <Classes> setClasses = new HashSet();
 
-        newClasses.setName("13-F");
-        newClasses.setRoomNumber("000");
+        Head h1 = (Head) session.createCriteria(Head.class).add(Restrictions.like("name", "Putin")).list().get(0);
 
-        newClasses.setHead(newHead);
+        Classes [] arrClasseses = h1.getClasses().toArray(new Classes[]{});
 
-        session = HibernateUtil.getSessionFactory().openSession();
+        for (Classes classes : arrClasseses) {
+           classes.setRoomNumber(120);
+        }
 
-        session.saveOrUpdate(newClasses);
+//        session.delete(h1);
 
+//        session.flush();
         session.getTransaction().commit();
+
 
 
     }

@@ -20,7 +20,7 @@ public class Head {
     @Column(name = "birthday")
     private Date birthday;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "head")
+    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "head")
     Set<Classes> classes = new HashSet<Classes>();
 
 

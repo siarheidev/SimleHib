@@ -15,7 +15,7 @@ public class Classes {
     private String name;
 
     @Column (name = "roomNumber")
-    private String roomNumber;
+    private int roomNumber;
 
     @ManyToOne
     @JoinColumn(name = "headId")
@@ -37,11 +37,11 @@ public class Classes {
         this.id = id;
     }
 
-    public String getRoomNumber() {
+    public int getRoomNumber() {
         return roomNumber;
     }
 
-    public void setRoomNumber(String roomNumber) {
+    public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
     }
 
