@@ -75,7 +75,7 @@ public class TestClasses {
         Classes [] arrClasseses = h1.getClasses().toArray(new Classes[]{});
 
         for (Classes classes : arrClasseses) {
-           classes.setRoomNumber(120);
+           classes.setRoomNumber(121);
         }
 
 //        session.delete(h1);
