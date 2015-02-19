@@ -1,22 +1,11 @@
 package main;
 
-import java.sql.SQLException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import com.dev.dao.TestClasses;
 
-import dao.TestClasses;
-import org.hibernate.Hibernate;
-import org.hibernate.proxy.HibernateProxy;
-
-import dao.AuthorDAO;
-import dao.BookAuthorDAO;
-import dao.BookDAO;
-import table.Author;
-import table.Book;
-import table.BookAuthors;
-import util.HibernateUtil;
+//import table.Author;
+//import table.Book;
+//import table.BookAuthors;
+import com.dev.util.HibernateUtil;
 
 
 public class Start 

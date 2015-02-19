@@ -17,7 +17,7 @@ public class Classes {
     @Column (name = "roomNumber")
     private int roomNumber;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "headId")
     private Head head;
 
