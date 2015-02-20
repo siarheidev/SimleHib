@@ -88,7 +88,7 @@ public class TestClasses {
         Set <Classes> setClasses = new HashSet();
 
         Head h1 = (Head) session.createCriteria(Head.class).add(Restrictions
-                .like("id", new Integer(13))).list().get(0);
+                .like("id", new Integer(4))).list().get(0);
         Classes c1 = new Classes();
         Classes c2 = new Classes();
 
