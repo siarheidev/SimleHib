@@ -5,14 +5,12 @@ import com.dev.domain.Head;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 import com.dev.util.HibernateUtil;
-import org.hibernate.proxy.HibernateProxy;
-import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Service
+
 public class TestClasses {
 
     Session session = null;
@@ -68,53 +66,16 @@ public class TestClasses {
         Set <Classes> setClasses = new HashSet();
 
         Head h1 = (Head) session.createCriteria(Head.class).add(Restrictions
-                .like("id", new Integer(1))).list().get(0);
+                .like("id", new Integer(16))).list().get(0);
         Classes c1 = new Classes();
         Classes c2 = new Classes();
 
-        initializeAndUnproxy(h1);
+        session.delete(h1);
 
         session.getTransaction().commit();
 
-    }
-
-    public Head getHead(){
-
-        session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-
-        Head newHead = new Head();
-        Classes newClasses = new Classes();
-        Set <Classes> setClasses = new HashSet();
-
-        Head h1 = (Head) session.createCriteria(Head.class).add(Restrictions
-                .like("id", new Integer(4))).list().get(0);
-        Classes c1 = new Classes();
-        Classes c2 = new Classes();
-
-        h1 = initializeAndUnproxy(h1);
-
-        session.getTransaction().commit();
-
-        return h1;
 
 
-    }
-
-
-
-    public  <T> T initializeAndUnproxy(T entity) {
-        if (entity == null) {
-            throw new
-                    NullPointerException("Entity passed for initialization is null");
-        }
-
-        Hibernate.initialize(entity);
-        if (entity instanceof HibernateProxy) {
-            entity = (T) ((HibernateProxy) entity).getHibernateLazyInitializer()
-                    .getImplementation();
-        }
-        return entity;
     }
 
 
