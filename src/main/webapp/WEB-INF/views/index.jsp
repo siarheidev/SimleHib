@@ -14,16 +14,15 @@
     <title></title>
 </head>
 <body>
-HELLO!!!
+<h2>HELLO!!!</h2>
 
 <c:if test="${!empty heads}">
   <h3>Users</h3>
-  <table>
+  <table border="2" align="center" cellspacing="0">
     <thead>
     <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>&nbsp;</th>
+      <th>Head</th>
+      <th>Classes</th>
     </tr>
     </thead>
     <tbody>

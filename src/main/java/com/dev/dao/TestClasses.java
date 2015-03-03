@@ -92,6 +92,8 @@ public class TestClasses {
         Classes c1 = new Classes();
         Classes c2 = new Classes();
 
+        System.out.println("ssssssssssssssss" + h1.getClasses().size());
+
         h1 = initializeAndUnproxy(h1);
 
         session.getTransaction().commit();
