@@ -1,7 +1,11 @@
 package com.dev.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
-import java.util.Date;
+
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,10 +22,23 @@ public class Head {
     private String name;
 
     @Column(name = "birthday")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date birthday;
 
     @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "head")
     Set<Classes> classes = new HashSet<Classes>();
+
+    @Transient
+    String tDate;
+
+    public String gettDate() {
+        return tDate;
+    }
+
+    public void settDate(String tDate) {
+        this.tDate = tDate;
+    }
+
 
 
     public int getId() {
@@ -40,8 +57,8 @@ public class Head {
         return classes;
     }
 
-    public void setClasses(Set<Classes> classes) {
-        this.classes = classes;
+    public void setClasses(Classes classe) {
+        classes.add(classe);
     }
 
     public void setName(String name) {

@@ -1,6 +1,7 @@
 package com.dev.dao;
 
 import com.dev.domain.Classes;
+import com.dev.domain.DoubleClass;
 import com.dev.domain.Head;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
@@ -8,6 +9,7 @@ import com.dev.util.HibernateUtil;
 import org.hibernate.proxy.HibernateProxy;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -101,6 +103,29 @@ public class TestClasses {
         return h1;
 
 
+    }
+
+    public void saveDouble(DoubleClass doubleClass){
+
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Head head = doubleClass.getHead();
+        Classes classes = doubleClass.getClasses();
+        classes.setHead(head);
+        head.setClasses(classes);
+
+        session.save(head);
+        session.saveOrUpdate(classes);
+        session.getTransaction().commit();
+
+    }
+
+    public void delById(int id){
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Head head = (Head)session.get(Head.class, id);
+        session.delete(head);
+        session.getTransaction().commit();
     }
 
 
