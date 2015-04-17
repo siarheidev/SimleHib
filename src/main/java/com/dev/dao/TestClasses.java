@@ -128,7 +128,12 @@ public class TestClasses {
         session.getTransaction().commit();
     }
 
-
+    public Head getHeadlById(int id){
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Head head = (Head)session.get(Head.class, id);
+        return head;
+    }
 
     public  <T> T initializeAndUnproxy(T entity) {
         if (entity == null) {

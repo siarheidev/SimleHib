@@ -1,56 +1,37 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Sergey
-  Date: 13.04.2015
-  Time: 14:19
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+
     <title></title>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
-  <script type="text/javascript">
-      var a = {"one" : "jn", "two" : "ff"};
-      var b = JSON.stringify(a);
-    function doAjax() {
+    <script type="text/javascript">
+        var a;
+        var b;
+        function doAjax() {
 
-//        var a = { one : "inputText", two : "two"};
-        var a = {"one" : "jn", "two" : "ff"};
-        var b = JSON.stringify(a);
+            var inputText = $("#input_str").val();
+            a = {"one" : inputText};
+            b = JSON.stringify(a);
 
-        var inputText = $("#input_str").val();
-//      $.post("ajaxtest", b,
-//              function (data) {
-////                 data = JSON.stringify(data);
-//                console.log(data);
-//              }
-//      );
+            $.ajax({
+                url : 'ajaxtest',
+                type: 'POST',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                mimeType: 'application/json',
+                data :  b,
 
-
-      $.ajax({
-        url : 'ajaxtest/a',
-        type: 'POST',
-        dataType: 'json',
-        contentType: 'application/json; charset=utf-8',
-        mimeType: 'application/json',
-        data :  b,
-
-        success: function (data) {
-
-          console.log(data);
-
-          var result = data.one +' ' + data.two;
-          $("#result_text").text(result);
-        },
-        failure: function(errorMsg) {
-          alert("Ошибка.");
+                success: function (data) {
+                    console.log(data);
+                    var result = data.id +' ' + data.name + ' ' + data.birthday;
+                    $("#result_text").text(result);
+                },
+                failure: function(errorMsg) {
+                    alert("Ошибка.");
+                }
+            });
         }
-      });
-
-
-    }
   </script>
     <%--<script type="text/javascript" >--%>
         <%--$(document).ready(function(){--%>

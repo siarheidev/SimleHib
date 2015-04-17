@@ -1,5 +1,6 @@
 package com.dev.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -25,6 +26,7 @@ public class Head {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date birthday;
 
+    @JsonIgnore
     @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "head")
     Set<Classes> classes = new HashSet<Classes>();
 

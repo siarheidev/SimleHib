@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * Created by Sergey on 13.04.2015.
  */
-@JsonIgnoreProperties(ignoreUnknown=true)
+//@JsonIgnoreProperties(ignoreUnknown=true)
 public class AjaxDom {
 
     public AjaxDom(){}

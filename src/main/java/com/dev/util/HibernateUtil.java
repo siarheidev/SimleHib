@@ -4,9 +4,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.c3p0.internal.C3P0ConnectionProvider;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
-import org.hibernate.engine.spi.SessionFactoryImplementor;
 import org.hibernate.internal.SessionFactoryImpl;
-import org.hibernate.service.spi.Stoppable;
 
 public class HibernateUtil {
 
@@ -36,4 +34,5 @@ public class HibernateUtil {
 		}
 		sessionFactory.close();
 	}
+
 }
