@@ -30,7 +30,7 @@
 
 
       $.ajax({
-        url : 'ajaxtest',
+        url : 'ajaxtest/a',
         type: 'POST',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',

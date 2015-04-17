@@ -9,11 +9,12 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
-public class AppInit implements WebApplicationInitializer {
+public class AppInit //implements WebApplicationInitializer
+{
 
     private static final String DISPATCHER_SERVLET_NAME = "dispatcher";
 
-    @Override
+//    @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
 

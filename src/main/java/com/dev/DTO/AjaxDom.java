@@ -1,5 +1,6 @@
-package com.dev.domain;
+package com.dev.DTO;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
@@ -7,6 +8,7 @@ import java.io.Serializable;
 /**
  * Created by Sergey on 13.04.2015.
  */
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class AjaxDom {
 
     public AjaxDom(){}
