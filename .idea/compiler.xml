@@ -25,5 +25,8 @@
         <module name="SimleHib" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SimleHib" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
